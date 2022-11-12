@@ -23,6 +23,6 @@ class DatabaseSeeder extends Seeder
         'is_super' => true
       ]);
   
-      Podcast::factory(10)->create();
+      Podcast::factory(20)->create();
     }
 }

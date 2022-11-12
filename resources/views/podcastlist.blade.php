@@ -10,6 +10,12 @@
         <a href="{{route('episode', $podcast->slug)}}"><h4 class="card-title text-capitalize">{{ $podcast->title }}</h4></a>
         <p class="card-text"> {{ \Str::limit($podcast->description, 100, "...") }} </p>
       </div>
+      @auth()
+        <div class="card-footer">
+          <a href="{{ route('episode', $podcast->slug) }}" class="btn btn-outline-secondary">Edit</a>
+          <!-- <button class="btn btn-danger">Delete</button> -->
+        </div>
+      @endauth
     </div>
   </div>
   @empty
