@@ -22,7 +22,7 @@
     <language>en-us</language>
     <itunes:block>no</itunes:block>
     <itunes:explicit>no</itunes:explicit>
-    <copyright>&#169; 2022-year('Y') BLSC</copyright>
+    <copyright>&#169; 2022 - {{date('Y')}} BLSC</copyright>
 
     @foreach ($podcasts as $podcast)
     <item>
@@ -34,7 +34,7 @@
       <guid isPermaLink="false"> {{$podcast->slug}} </guid>
       <itunes:duration> {{$podcast->duration}} </itunes:duration>
       <pubDate>{{ $podcast->updated_at->format('D, d M Y H:i:s +0000') }}</pubDate>
-      <itunes:image href="{{ asset('assets/blsc_logo.png') }}"/>
+      <itunes:image href="{{ $podcast->image }}"/>
 
       <!-- Incase -->
       <itunes:block> {{$podcast->block}} </itunes:block>

@@ -10,10 +10,15 @@ class Podcast extends Model
 {
   use HasFactory;
 
-  public function getUrlAttribute()
+  public function getImageAttribute()
   {
-    return Storage::url($this->content_resource);
+    return Storage::url("images/".$this->episode_image);
   }
 
-  protected $appends = ['url'];
+  public function getUrlAttribute()
+  {
+    return Storage::url("audio/".$this->content_resource);
+  }
+
+  protected $appends = ['url', 'image'];
 }
