@@ -8,8 +8,7 @@ a {
   color: inherit;
 }
 
-
-/* File Selector and Preview */
+/* Image File Selector and Preview */
 .file_selector {
   width: 250px;
 }
@@ -49,6 +48,27 @@ a {
   text-transform: uppercase;
 }
 
+/* Form */
 .form-group {
   margin-bottom: 20px;
+}
+
+/* Alert */
+.alert {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  max-width: 50vw;
+}
+.alert .btn-close {
+  font-size: x-small;
+}
+
+@media(max-width:500px) {
+  .alert {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    max-width: 90vw;
+  }
 }

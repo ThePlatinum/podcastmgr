@@ -65,9 +65,39 @@
     </nav>
 
     <main>
+
+      @if(session()->has('success'))
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class='bx bx-check-circle pe-1'></i>
+        {{ session()->get('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      @endif
+      @if (session('status'))
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class='bx bx-check-circle pe-1'></i>
+        {{ session('status') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      @endif
+      @if(session()->has('error'))
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <i class='bx bx-error-circle pe-1'></i>
+        {{ session()->get('error') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      @endif
+
       @yield('content')
     </main>
   </div>
+  <script>
+    setTimeout(function() {
+      $(".alert").hide('medium');
+      // console.clear()
+      // console.log('***'.repeat('15'), "\n Developed by Platinum Techs", '\n', '***'.repeat('15'));
+    }, 3500);
+  </script>
 </body>
 
 </html>
