@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Podcast;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PodcastController extends Controller
 {
@@ -33,9 +34,45 @@ class PodcastController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store()
+  public function store(Request $request)
   {
-    //
+    $validator = Validator::make($request->all(), [
+      'title' =>'required|max:55',
+      'description' =>'required|max:255',
+      'audio' => 'required',
+      'hour' =>'required',
+      'minutes' =>'required',
+      'seconds' =>'required'
+    ]);
+
+    if ($validator->fails()) return back()->withErrors($validator)->withInput();
+
+    $slug = now()->getTimestamp();
+    $the_file = $request->file("audio");
+    $_file = $the_file->storeAs('audios', $slug . '.' . $the_file->getClientOriginalExtension());
+    
+    $duration = $request->hiour .":". $request->minutes .":". $request->seconds;
+    $length = ($request->hiour  * 120) + ($request->minutes * 60) + $request->seconds;
+
+    $episode_image = 'default.png';
+    if ($request->hasFile("image")) {
+      $image = $request->file("image");
+      $episode_image = $slug . '.' . $image->getClientOriginalExtension();
+      $image->storeAs('images', $episode_image);
+    }
+
+    if ($_file){
+      $podcast = Podcast::create([
+        'title' => $slug . '.' . $the_file->getClientOriginalExtension(),
+        'slug' => $slug,
+        'episode_image' => $episode_image,
+        'audio' => $request->audio,
+        'duration' => $duration,
+        'length' => $length,
+        'description' => $request->description,
+      ]);
+      if ($podcast) return back()->with('success', 'Podcast created successfully !');
+    } else return back()->with('error', 'An Error has occurred');
   }
 
   /**

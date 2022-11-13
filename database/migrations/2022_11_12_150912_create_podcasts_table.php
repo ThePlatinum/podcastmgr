@@ -18,8 +18,9 @@ return new class extends Migration
       $table->string('title');
       $table->string('slug');
       $table->string('episode_image')->default('default.png');
-      $table->string('content_resource');
+      $table->string('audio');
       $table->string('duration');
+      $table->string('length');
       $table->text('description');
       $table->char('block', 3)->default('no');
       $table->char('explicit', 3)->default('no');

@@ -17,7 +17,7 @@ class Podcast extends Model
 
   public function getUrlAttribute()
   {
-    return Storage::url("audio/".$this->content_resource);
+    return Storage::url("audios/".$this->audio);
   }
 
   protected $appends = ['url', 'image'];

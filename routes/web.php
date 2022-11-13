@@ -25,6 +25,11 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('/episode/{slug}', [PodcastController::class, 'index'])->name('episode');
-Route::get('/_new/episode', [PodcastController::class, 'create'])->name('create.episode');
+
+Route::controller(PodcastController::class)->group(function () {
+  Route::get('/episode/{slug}', 'index')->name('episode');
+  Route::get('/_new/episode', 'create')->name('create.episode');
+  Route::post('/_store/episode', 'store')->name('store.episode');
+});
+
 Route::get('/onichapodcastrss', FeedController::class);

@@ -19,8 +19,9 @@ class PodcastFactory extends Factory
     return [
       'title' => fake()->words(3, true),
       'slug' => fake()->slug(6, true),
-      'content_resource' => fake()->word(),
-      'duration' => '01:23',
+      'audio' => 'test_audio.mp3',
+      'duration' => fake()->time(),
+      'length' => random_int(10000, 60000),
       'description' => fake()->paragraphs(5, true)
     ];
   }
