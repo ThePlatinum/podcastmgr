@@ -51,8 +51,8 @@ class PodcastController extends Controller
     $the_file = $request->file("audio");
     $_file = $the_file->storeAs('audios', $slug . '.' . $the_file->getClientOriginalExtension());
     
-    $duration = $request->hiour .":". $request->minutes .":". $request->seconds;
-    $length = ($request->hiour  * 120) + ($request->minutes * 60) + $request->seconds;
+    $duration = $request->hour .":". $request->minutes .":". $request->seconds;
+    $length = ($request->hour  * 120) + ($request->minutes * 60) + $request->seconds;
 
     $episode_image = 'default.png';
     if ($request->hasFile("image")) {

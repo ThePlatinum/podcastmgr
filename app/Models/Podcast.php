@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Storage;
 class Podcast extends Model
 {
   use HasFactory;
+  
+  protected $guarded = ['id'];
 
   public function getImageAttribute()
   {
