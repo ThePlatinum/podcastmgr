@@ -63,10 +63,10 @@ class PodcastController extends Controller
 
     if ($_file){
       $podcast = Podcast::create([
-        'title' => $slug . '.' . $the_file->getClientOriginalExtension(),
+        'title' => $request->title,
         'slug' => $slug,
         'episode_image' => $episode_image,
-        'audio' => $request->audio,
+        'audio' => $slug . '.' . $the_file->getClientOriginalExtension(),
         'duration' => $duration,
         'length' => $length,
         'description' => $request->description,
