@@ -53,7 +53,7 @@
             <div class="row">
               <div class="col-4">
                 <label for="hour">Hour</label>
-                <input required type="number" min="0" name="hour" id="hour" class="form-control @error('hour') is-invalid @enderror" value="{{ old('hour') }}">
+                <input required type="number" min="0" max="5" value="0" name="hour" id="hour" class="form-control @error('hour') is-invalid @enderror" value="{{ old('hour') }}">
                 @error('hour')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
@@ -63,7 +63,7 @@
 
               <div class="col-4">
                 <label for="minutes">Minutes</label>
-                <input required type="number" min="0" name="minutes" id="minutes" class="form-control @error('minutes') is-invalid @enderror" value="{{ old('minutes') }}">
+                <input required type="number" min="0" max="59" value="0" name="minutes" id="minutes" class="form-control @error('minutes') is-invalid @enderror" value="{{ old('minutes') }}">
                 @error('minutes')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
@@ -73,7 +73,7 @@
 
               <div class="col-4">
                 <label for="seconds">Seconds</label>
-                <input required type="number" min="0" name="seconds" id="seconds" class="form-control @error('seconds') is-invalid @enderror" value="{{ old('seconds') }}">
+                <input required type="number" min="0" max="59" value="0" name="seconds" id="seconds" class="form-control @error('seconds') is-invalid @enderror" value="{{ old('seconds') }}">
                 @error('seconds')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
@@ -85,7 +85,7 @@
 
           <div class="form-group">
             <label for="description">Episode Description</label>
-            <textarea name="description" rows="6" id="description" placeholder="About 200 characters to describe the episode, more like a short note people can read to know what the episode is about" class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
+            <textarea name="description" rows="6" id="description" placeholder="About 200 - 800 characters to describe the episode, more like a short note people can read to know what the episode is about" class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
             @error('description')
             <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>

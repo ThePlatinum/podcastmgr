@@ -6,6 +6,7 @@ use App\Models\Podcast;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class PodcastController extends Controller
 {
@@ -36,36 +37,41 @@ class PodcastController extends Controller
   public function store(Request $request)
   {
     $validator = Validator::make($request->all(), [
-      'title' =>'required|max:55',
-      'description' =>'required|max:255',
+      'title' => 'required|max:100',
+      'description' => 'required|max:800',
       'audio' => 'required',
-      'hour' =>'required',
-      'minutes' =>'required',
-      'seconds' =>'required'
+      'hour' => 'required',
+      'minutes' => 'required',
+      'seconds' => 'required'
     ]);
 
     if ($validator->fails()) return back()->withErrors($validator)->withInput();
 
-    $slug = Str::of($request->title)->slug('-')."-".now()->getTimestamp();
+    $slug = Str::of($request->title)->slug('-') . "-" . now()->getTimestamp();
     $the_file = $request->file("audio");
     $_file = $the_file->storeAs('audios', $slug . '.' . $the_file->getClientOriginalExtension());
-    
-    $duration = $request->hour .":". $request->minutes .":". $request->seconds;
+
+    $duration = $request->hour . ":" . $request->minutes . ":" . $request->seconds;
     $length = ($request->hour  * 120) + ($request->minutes * 60) + $request->seconds;
 
     $episode_image = 'default.png';
     if ($request->hasFile("image")) {
       $image = $request->file("image");
       $episode_image = $slug . '.' . $image->getClientOriginalExtension();
-      $image->storeAs('images', $episode_image);
+
+      $image_resize = Image::make($image->getRealPath());
+      $image_resize->resize(null, 250, function ($constraint) {
+        $constraint->aspectRatio();
+      });
+      $image_resize->save(public_path('storage/images/'.$episode_image), 100);
     }
 
-    if ($_file){
+    if ($_file) {
       $podcast = Podcast::create([
         'title' => $request->title,
         'slug' => $slug,
         'episode_image' => $episode_image,
-        'audio' => $slug .'.'.$the_file->getClientOriginalExtension(),
+        'audio' => $slug . '.' . $the_file->getClientOriginalExtension(),
         'duration' => $duration,
         'length' => $length,
         'description' => $request->description,
@@ -95,7 +101,7 @@ class PodcastController extends Controller
   {
     //
   }
-  
+
   /**
    * Remove the specified resource from storage.
    *
