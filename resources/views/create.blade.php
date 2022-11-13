@@ -1,0 +1,127 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="bg-light py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <h1 class="h3 pb-4">Create a New Episode</h1>
+        <form action="" method="post" class="bg-white p-4 p-md-5">
+          @csrf
+
+          <div class="file_selector form-group">
+            <label for="image">Episode Image <span class="small p-0 m-0">(Optional)</span></label>
+            <div class="wrapper d-flex justify-content-center align-items-center flex-column">
+              <img src="" alt="Episode Art" id="preview_img" width="150">
+              <div class="content p-5">
+                No file chosen, yet!
+              </div>
+              <div class="file_name p-2"></div>
+            </div>
+            <button onclick="selectFile()" id="custom-btn" type="button" class="btn btn-outline-secondary">Choose a file</button>
+            <input id="default_file" type="file" name="image" hidden class="form-control @error('image') is-invalid @enderror">
+            @error('image')
+            <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+          </div>
+
+          <div class="form-group">
+            <label for="title">Episode Title</label>
+            <input required type="text" name="title" id="title" placeholder="The Episode title, e.g: How to welcome a visitor in Onicha" class="form-control @error('title') is-invalid @enderror" value="{{ old('title') }}">
+            @error('title')
+            <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+          </div>
+
+          <div class="form-group">
+            <label for="audio">Episode Audio Content</label>
+            <input required type="file" name="audio" id="audio" class="form-control @error('audio') is-invalid @enderror" value="{{ old('audio') }}">
+            @error('audio')
+            <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+          </div>
+
+          <div class="form-group">
+            <label>Episode Audio Duration</label>
+
+            <div class="row">
+              <div class="col-4">
+                <label for="hour">Hour</label>
+                <input required type="number" min="0" name="hour" id="hour" class="form-control @error('hour') is-invalid @enderror" value="{{ old('hour') }}">
+                @error('hour')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+              </div>
+
+              <div class="col-4">
+                <label for="minutes">Minutes</label>
+                <input required type="number" min="0" name="minutes" id="minutes" class="form-control @error('minutes') is-invalid @enderror" value="{{ old('minutes') }}">
+                @error('minutes')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+              </div>
+
+              <div class="col-4">
+                <label for="seconds">Seconds</label>
+                <input required type="number" min="0" name="seconds" id="seconds" class="form-control @error('seconds') is-invalid @enderror" value="{{ old('seconds') }}">
+                @error('seconds')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Episode Description</label>
+            <textarea name="description" rows="6" id="description" placeholder="About 200 characters to describe the episode, more like a short note people can read to know what the episode is about" class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
+            @error('description')
+            <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+          </div>
+
+          <button type="submit" class="btn btn-dark px-5 mt-4"> Create Now </button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  const wrapper = document.querySelector(".wrapper");
+  const fileName = document.querySelector(".file_name");
+  const default_file = document.querySelector("#default_file");
+  const customBtn = document.querySelector("#custom-btn");
+  const preview_img = document.querySelector("#preview_img");
+  let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
+
+  function selectFile() {
+    default_file.click();
+  }
+  default_file.addEventListener("change", function() {
+    const file = this.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function() {
+        preview_img.src = reader.result;
+        wrapper.classList.add("active");
+      }
+      reader.readAsDataURL(file);
+      fileName.innerHTML = file.name.match(regExp);
+    }
+  });
+</script>
+@endsection

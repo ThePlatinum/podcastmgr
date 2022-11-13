@@ -7,3 +7,48 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+
+/* File Selector and Preview */
+.file_selector {
+  width: 250px;
+}
+
+.file_selector .wrapper {
+  min-height: 90%;
+  width: 100%;
+  background: #fff;
+  border: 2px dashed #c2cdda;
+}
+
+.wrapper.active {
+  padding: 10px;
+}
+
+.wrapper img {
+  object-fit: contain;
+  display: none;
+}
+
+.wrapper .file_name {
+  display: none;
+}
+
+.wrapper.active img,
+.wrapper.active .file_name {
+  display: block;
+}
+
+.wrapper.active .content {
+  display: none;
+}
+
+.file_selector #custom-btn {
+  margin-top: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}

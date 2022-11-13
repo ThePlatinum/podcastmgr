@@ -26,4 +26,5 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/episode/{slug}', [PodcastController::class, 'index'])->name('episode');
+Route::get('/_new/episode', [PodcastController::class, 'create'])->name('create.episode');
 Route::get('/onichapodcastrss', FeedController::class);

@@ -12,9 +12,9 @@ class PodcastController extends Controller
    *
    * @return \Illuminate\Http\Response
    */
-  public function index()
+  public function index($episode)
   {
-    //
+    return ;
   }
 
   /**
@@ -24,7 +24,7 @@ class PodcastController extends Controller
    */
   public function create()
   {
-    //
+    return view('create');
   }
 
   /**
@@ -33,7 +33,7 @@ class PodcastController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store()
   {
     //
   }
@@ -59,19 +59,7 @@ class PodcastController extends Controller
   {
     //
   }
-
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @param  \App\Models\Podcast  $podcast
-   * @return \Illuminate\Http\Response
-   */
-  public function episode($episode)
-  {
-    return ;
-  }
-
+  
   /**
    * Remove the specified resource from storage.
    *
