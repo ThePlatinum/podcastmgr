@@ -35,6 +35,7 @@
       <itunes:duration> {{$podcast->duration}} </itunes:duration>
       <pubDate>{{ $podcast->updated_at->format('D, d M Y H:i:s +0000') }}</pubDate>
       <itunes:image href="{{ $podcast->image }}"/>
+      <link> {{route('episode', $podcast->slug)}} </link>
 
       <!-- Incase -->
       <itunes:block> {{$podcast->block}} </itunes:block>

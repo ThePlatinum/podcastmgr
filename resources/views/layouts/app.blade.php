@@ -4,10 +4,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- CSRF Token -->
+  <meta name="author" content="Platinum Techs">
+  <meta name="description" content="Podcast Manager and Webpage for BLSC Onicha Ado Dialect">
+  <meta name="keywords" content="Onicha Ado, Igbo Language, Podcast">
+  <link rel="icon" type="images/mantenar.svg" href="{{ asset('assets/blass_favicon.png') }}">
+  <link rel="apple-touch-icon" href="{{ asset('assets/blass_favicon.png') }}" />
+  <meta name="theme-color" content="#FFFFFF" />
   <meta name="csrf-token" content="{{ csrf_token() }}">
-
   <title>{{ config('app.name', 'Laravel') }}</title>
 
   <!-- Fonts -->
