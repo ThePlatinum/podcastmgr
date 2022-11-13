@@ -32,7 +32,7 @@ class SubscribeController extends Controller
     if ($validator->fails()) return back()->withErrors($validator)->withInput();
 
     $check = Subscribe::where('email', $request->email)->get();
-    if ($check) return back()->with('warning', 'Thanks, You have already subscribed');
+    if ($check->count > 0) return back()->with('warning', 'Thanks, You have already subscribed');
 
     Subscribe::create([
       'email' => $request->email
