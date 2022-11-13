@@ -3,19 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Podcast;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class PodcastController extends Controller
 {
-  /**
-   * Display a listing of the resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
   public function index($episode)
   {
-    return ;
+    $episode = Podcast::where('slug', $episode)->first();
+    if (!$episode) return back()->with('error', 'Could not find the episode');
+
+    return view('episode', compact('episode'));
   }
 
   /**
@@ -47,7 +46,7 @@ class PodcastController extends Controller
 
     if ($validator->fails()) return back()->withErrors($validator)->withInput();
 
-    $slug = now()->getTimestamp();
+    $slug = Str::of($request->title)->slug('-')."-".now()->getTimestamp();
     $the_file = $request->file("audio");
     $_file = $the_file->storeAs('audios', $slug . '.' . $the_file->getClientOriginalExtension());
     
@@ -66,7 +65,7 @@ class PodcastController extends Controller
         'title' => $request->title,
         'slug' => $slug,
         'episode_image' => $episode_image,
-        'audio' => $slug . '.' . $the_file->getClientOriginalExtension(),
+        'audio' => $slug .'.'.$the_file->getClientOriginalExtension(),
         'duration' => $duration,
         'length' => $length,
         'description' => $request->description,

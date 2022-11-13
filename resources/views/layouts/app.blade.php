@@ -94,13 +94,6 @@
       @yield('content')
     </main>
   </div>
-  <script>
-    // setTimeout(function() {
-    //   $(".alert").hide('medium');
-    //   // console.clear()
-    //   // console.log('***'.repeat('15'), "\n Developed by Platinum Techs", '\n', '***'.repeat('15'));
-    // }, 3500);
-  </script>
 </body>
 
 </html>
