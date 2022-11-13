@@ -76,10 +76,10 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
       @endif
-      @if (session('status'))
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
+      @if (session('warning'))
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
         <i class='bx bx-check-circle pe-1'></i>
-        {{ session('status') }}
+        {{ session('warning') }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
       @endif
@@ -95,11 +95,11 @@
     </main>
   </div>
   <script>
-    setTimeout(function() {
-      $(".alert").hide('medium');
-      // console.clear()
-      // console.log('***'.repeat('15'), "\n Developed by Platinum Techs", '\n', '***'.repeat('15'));
-    }, 3500);
+    // setTimeout(function() {
+    //   $(".alert").hide('medium');
+    //   // console.clear()
+    //   // console.log('***'.repeat('15'), "\n Developed by Platinum Techs", '\n', '***'.repeat('15'));
+    // }, 3500);
   </script>
 </body>
 

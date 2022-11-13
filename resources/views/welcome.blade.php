@@ -49,18 +49,26 @@
 <!-- Subscription -->
 <section class="bg-light py-5">
   <div class="container">
-  <div class='row d-flex flex-column align-items-center text-center'>
-    <div class="col-md-7">
-      <p class="display-5">Subscribe</p>
-      <p>We got many more awesome things in store, be among the first to know about them</p>
-      <div class="input-group">
-        <input type="text" class="form-control" name="email" placeholder="Enter your email" />
-        <span class="input-group-btn">
-          <button class="btn btn-dark px-4" type="button">Subscribe</button>
-        </span>
+    <div class='row d-flex flex-column align-items-center text-center'>
+      <div class="col-md-7">
+        <p class="display-5">Subscribe</p>
+        <form action="{{route('subscribe')}}" method="post">
+          @csrf
+          <p>We got many more awesome things in store, be among the first to know about them</p>
+          <div class="input-group">
+            <input type="email" class="form-control @error('email') is-invalid @enderror" required name="email" placeholder="Enter your email" />
+            <span class="input-group-btn">
+              <button class="btn btn-dark px-4" type="sbumit">Subscribe</button>
+            </span>
+            @error('email')
+            <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+          </div>
+        </form>
       </div>
     </div>
-  </div>
   </div>
 </section>
 
