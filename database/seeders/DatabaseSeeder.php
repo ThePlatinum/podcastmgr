@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
       \App\Models\User::factory()->create([
         'name' => 'Podcast Admin',
         'email' => 'blscpodcastmgr@gmail.com',
-        'password' => bcrypt('123456789'),
+        'password' => bcrypt('RSS***FEEDS'),
         'is_super' => true
       ]);
   
