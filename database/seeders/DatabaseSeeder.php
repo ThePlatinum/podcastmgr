@@ -29,9 +29,13 @@ class DatabaseSeeder extends Seeder
         'title' => $title,
         'slug' => Str::slug($title, '-'),
         'audio' => 'onichawelcome.mp3',
-        'duration' => "24",
-        'length' => "0:0:24",
-        'description' => "Hi!  Welcome to the Onicha Ado Dialect Podcast, brought to you by Blended Learning and Study Center. We are glad you are joining us for an awesome learning experience. We will bring you wonderful topics, simple enough to get you into learning not just the Language, but also the culture of the People, to help build you into a near-native speaker of the dialect. These Lectures will be taught by native speakers of the language, and you sure will enjoy every piece of it. CHEERS!"
+        'duration' => "108",
+        'length' => "0:1:48",
+        'description' => 
+          "Onitcha Language is a beautiful language. \n It is the language of the people of Onitcha. It is a unique language. Every Onicha indigene is proud of her culture and heritage. 
+           \n Thank you for joining me in the process of learning Onicha language. Through this podcast, you will learn to speak Onicha and the culture of Onitsha.
+           \n This promises to be fun and interesting... so, make sure to subscribe to the podcast to get notified of every new episode. 
+           \n Thanks."
       ]);
       // Podcast::factory(20)->create();
     }

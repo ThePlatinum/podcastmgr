@@ -65,6 +65,18 @@ a {
   font-size: x-small;
 }
 
+/* Social Icons */
+.socials .icon {
+  background-color: whitesmoke;
+  border: 2px var(--bs-yellow) solid;
+  border-radius: 50% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+  width: 45px;
+}
+
 @media(max-width:500px) {
   .alert {
     position: fixed;
