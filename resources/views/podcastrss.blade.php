@@ -4,9 +4,9 @@
   <channel>
     <title>Onicha Ado Dialect</title>
     <itunes:owner>
-        <itunes:email>platinumemirate@gmail.com</itunes:email>
+        <itunes:email>blass@blendedlearningcenter.com</itunes:email>
     </itunes:owner>
-    <itunes:author>BLSC</itunes:author>
+    <itunes:author>Blended Learning and Study Center</itunes:author>
     <description> Learn the Onicha Ado Dialect of the Igbo Language </description>
     <itunes:image href="{{ asset('assets/blsc_logo.png') }}"/>
     <link> {{route('home')}} </link>
