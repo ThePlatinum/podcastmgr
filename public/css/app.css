@@ -86,8 +86,7 @@ a {
   width: 45px;
 }
 
-.bg-pattern_lightbox,
-.bg_pattern {
+.bg-pattern_lightbox, .bg_pattern {
   background: url("/assets/pattern_lightbox.svg");
   background-size: cover;
   background-repeat: no-repeat;
