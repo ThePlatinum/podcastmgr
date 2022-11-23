@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="justify-content-center d-flex py-5">
+<div class="justify-content-center d-flex py-5 bg_pattern">
   <div class="col-md-5">
     <div class="card p-3 ">
       <div class="text-center pt-3">

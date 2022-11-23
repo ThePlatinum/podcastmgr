@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="bg-light py-5">
+<div class="bg_pattern py-5">
   <div class="container">
-    <div class="d-flex gap-5 align-items-end">
+    <div class="d-flex gap-5 align-items-end flex-wrap">
       <img src="{{ $episode->image }}" alt="Podcast Episode Image" width="300">
       <div>
         <h3> {{ $episode->title }} </h3>
@@ -21,7 +21,7 @@
         Your browser does not support the audio element.
       </audio>
 
-      <p class="mt-3">
+      <p class="mt-3 bg-white p-4">
         {{ $episode->description }}
       </p>
     </div>
