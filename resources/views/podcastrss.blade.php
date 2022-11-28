@@ -8,7 +8,7 @@
     </itunes:owner>
     <itunes:author>Blended Learning and Study Center</itunes:author>
     <description> Learn the Onicha Ado Dialect of the Igbo Language </description>
-    <itunes:image href="{{ asset('assets/blsc_logo.png') }}"/>
+    <itunes:image href="{{ asset('assets/podcast_logo.png') }}"/>
     <link> {{route('home')}} </link>
 
     <!-- Ops -->
