@@ -11,7 +11,7 @@
   <div class="container mt-4 mt-md-0">
     <div class="d-flex justify-content-center gap-5">
       <div>
-        <a href="">
+        <a href="https://podcasts.apple.com/us/podcast/onicha-ado-dialect/id1655510192">
           <img src="{{asset('assets/apple-podcasts.png')}}" alt="Apple Podcast" width='50'>
           <p class="pt-3">Apple Podcast</p>
         </a>
