@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Podcast;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -17,23 +18,12 @@ class PodcastController extends Controller
 
     return view('episode', compact('episode'));
   }
-
-  /**
-   * Show the form for creating a new resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
+  
   public function create()
   {
     return view('create');
   }
 
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @return \Illuminate\Http\Response
-   */
   public function store(Request $request)
   {
     $validator = Validator::make($request->all(), [
@@ -80,15 +70,13 @@ class PodcastController extends Controller
     } else return back()->with('error', 'An Error has occurred');
   }
 
-  /**
-   * Display the specified resource.
-   *
-   * @param  \App\Models\Podcast  $podcast
-   * @return \Illuminate\Http\Response
-   */
-  public function show(Podcast $podcast)
+  public function delete(Request $request)
   {
-    //
+    $episode = Podcast::where('slug', $request->episode)->first();
+    if (!$episode) return back()->with('error', 'Could not find the episode');
+
+    $episode->delete();
+    return Session::flash('success', 'Podcast deleted successfully!');
   }
 
   /**
