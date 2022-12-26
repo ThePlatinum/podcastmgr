@@ -2,7 +2,7 @@
   @forelse ($podcasts as $podcast)
   <div class="col-md-3 my-2">
     <div class="card">
-      <img src="{{ $podcast->image }}" alt="Podcast Image" class="card-img">
+      <img src="{{ $podcast->image }}" alt="Podcast Image" class="card-img topic_img" height="250">
       <div class="card-body">
         <p class="text-muted m-0 p-0">{{ date_format($podcast->created_at, 'D d, M-Y') }}</p>
         <a href="{{route('episode', $podcast->slug)}}">
@@ -12,8 +12,8 @@
       </div>
       @auth()
       <div class="card-footer">
-        <a href="{{ route('episode', $podcast->slug) }}" class="btn btn-outline-secondary">Edit</a>
-        <!-- <button class="btn btn-danger">Delete</button> -->
+        <!-- <a href="{{ route('episode', $podcast->slug) }}" class="btn btn-outline-secondary">Edit</a> -->
+        <button class="btn btn-danger">Delete</button>
       </div>
       @endauth
     </div>

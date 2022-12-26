@@ -117,4 +117,12 @@ a {
   .text_primary {
     margin-top: 10vh;
   }
+
+  .topic_img{
+    height: 320px !important;
+  }
+
+  .dashboard_img{
+    width: 100% !important;
+  }
 }

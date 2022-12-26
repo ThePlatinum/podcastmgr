@@ -3,8 +3,8 @@
 @section('content')
 <div class="bg-light py-5">
   <div class="container">
-    <div class="d-flex gap-3 align-items-end">
-      <img src="{{\Storage::url('images/default.png')}}" alt="Podcast Default Image">
+    <div class="d-md-flex gap-3 align-items-end">
+      <img src="{{\Storage::url('images/default.png')}}" alt="Podcast Default Image" class="dashboard_img mb-3 mb-md-0" height="300">
       <div>
         <p class="text-muted small p-0 m-0">Total</p>
         <h3> {{ $podcasts->count() }} Podcasts </h3>
