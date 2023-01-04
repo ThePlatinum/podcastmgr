@@ -1,32 +1,39 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="text-center py-5 bg-pattern_lightbox">
-  <div class="container py-md-5">
-    <h1 class="text_primary display-1 pt-md-4"> Onicha Ado Dialect Podcast </h1>
-    <h2 class="text-muted h4 px-md-5 mb-3">We seek to break the language barrier amongst the younger generation who do not know how to speak the Onicha dialect and are also interested in learning how to write and speak the Onitsha dialect.</h2>
-    <h3 class="h5"> Connect to the podcasts on your favourate platform </h3>
-    <h4 class="text-muted h5">New episodes every week</h4>
-  </div>
-  <div class="container mt-4 mt-md-0">
-    <div class="d-flex justify-content-center gap-5">
-      <div>
-        <a href="https://podcasts.apple.com/us/podcast/onicha-ado-dialect/id1655510192">
-          <img src="{{asset('assets/apple-podcasts.png')}}" alt="Apple Podcast" width='50'>
-          <p class="pt-3">Apple Podcast</p>
-        </a>
+<section class="py-5 bg-pattern_lightbox">
+  <div class="container">
+    <img src="{{asset('assets/blass_logo.png')}}" alt="BLSC Logo" height="60">
+    <div class="row py-3">
+      <div class="col-md-5">
+        <img src="{{asset('assets/people_bg.png')}}" alt="Onicha Image" class="w-100">
       </div>
-      <div>
-        <a href="">
-          <img src="{{asset('assets/spotify.png')}}" alt="Apple Podcast" width='50'>
-          <p class="pt-3">Spotify Podcast</p>
-        </a>
-      </div>
-      <div>
-        <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9vbmljaGFwb2RjYXN0LmJsZW5kZWRsZWFybmluZ2NlbnRlci5jb20vb25pY2hhcG9kY2FzdHJzcw">
-          <img src="{{asset('assets/signal-google.png')}}" alt="Apple Podcast" width='50'>
-          <p class="pt-3">Google Podcast</p>
-        </a>
+      <div class="col-md-7 text-white d-flex flex-column gap-4">
+        <h1 class="display-2 text-uppercase"> Onicha Ado Dialect Podcast </h1>
+        <h2 class="h5">We seek to break the language barrier amongst the younger generation who do not know how to speak the Onicha dialect and are also interested in learning how to write and speak the Onicha dialect.</h2>
+        <h3 class="h5 yellow_bg">Connect to the podcasts on your favourite platform </h3>
+        <h4 class="h5">New episodes every week</h4>
+
+        <div class="d-flex align-items-center gap-4 flex-wrap">
+          <div class="apple bg-white">
+            <a href="https://podcasts.apple.com/us/podcast/onicha-ado-dialect/id1655510192">
+              <img src="{{asset('assets/apple-podcasts.png')}}" alt="Apple Podcast" width='30' height="30">
+              <p class="d-none d-md-block p-0 m-0">Apple Podcast</p>
+            </a>
+          </div>
+          <div class="spotify bg-white">
+            <a href="">
+              <img src="{{asset('assets/spotify.png')}}" alt="Spotify Podcast" width='30' height="30">
+              <p class="d-none d-md-block p-0 m-0">Spotify Podcast</p>
+            </a>
+          </div>
+          <div class="google">
+            <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9vbmljaGFwb2RjYXN0LmJsZW5kZWRsZWFybmluZ2NlbnRlci5jb20vb25pY2hhcG9kY2FzdHJzcw">
+              <img src="{{asset('assets/signal-google.png')}}" alt="Google Podcast" width='30' height="30">
+              <p class="d-none d-md-block p-0 m-0 text-white">Google Podcast</p>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
