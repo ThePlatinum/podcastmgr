@@ -11,10 +11,12 @@
         <p class="card-text text-line-limit-3"> {{ \Str::limit($podcast->description, 120, "...") }} </p>
       </div>
       @auth
+      @if (Route::is('dashboard'))
       <div class="card-footer">
         <a href="{{ route('episode.edit', $podcast->slug) }}" class="btn btn-outline-secondary">Edit</a>
         <button class="btn btn-danger" onclick="deleteepisode('{{$podcast->slug}}')">Delete</button>
       </div>
+      @endif
       @endauth
     </div>
   </div>
