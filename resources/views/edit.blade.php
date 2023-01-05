@@ -5,7 +5,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8">
-        <h1 class="h3 pb-4">Create a New Episode</h1>
+        <h1 class="h3 pb-4">Edit Episode</h1>
         <form action="{{route('episode.update')}}" method="post" class="bg-white p-4 p-md-5" enctype="multipart/form-data">
           @csrf
           <input type="hidden" name="episode" value="{{$episode->id}}">
