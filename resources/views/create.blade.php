@@ -85,7 +85,7 @@
 
           <div class="form-group">
             <label for="description">Episode Description</label>
-            <textarea name="description" rows="6" id="description" placeholder="About 200 - 800 characters to describe the episode, more like a short note people can read to know what the episode is about" class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
+            <textarea name="description" rows="6" id="description" placeholder="About 1000 characters to describe the episode, more like a short note people can read to know what the episode is about" class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
             @error('description')
             <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>

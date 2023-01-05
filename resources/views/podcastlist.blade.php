@@ -10,9 +10,9 @@
         </a>
         <p class="card-text text-line-limit-3"> {{ \Str::limit($podcast->description, 120, "...") }} </p>
       </div>
-      @auth()
+      @auth
       <div class="card-footer">
-        <!-- <a href="{{ route('episode', $podcast->slug) }}" class="btn btn-outline-secondary">Edit</a> -->
+        <a href="{{ route('episode.edit', $podcast->slug) }}" class="btn btn-outline-secondary">Edit</a>
         <button class="btn btn-danger" onclick="deleteepisode('{{$podcast->slug}}')">Delete</button>
       </div>
       @endauth
@@ -27,7 +27,6 @@
 
 <script>
   function deleteepisode(slug) {
-    console.log('slug: ', slug);
     bootbox.confirm({
       title: 'Delete this episode?',
       message: "<p class='text-center'> <b>Are you really sure you want to delete this episode? <br> Please note, that this action cannot be undone.</b> </p>",

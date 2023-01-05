@@ -11,7 +11,7 @@
       <div class="col-md-7 text-white d-flex flex-column gap-4">
         <h1 class="display-2 text-uppercase"> Onicha Ado Dialect Podcast </h1>
         <h2 class="h5">We seek to break the language barrier amongst the younger generation who do not know how to speak the Onicha dialect and are also interested in learning how to write and speak the Onicha dialect.</h2>
-        <h3 class="h5 yellow_bg">Connect to the podcasts on your favourite platform </h3>
+        <h3 class="h5 yellow_bg">Connect to the podcasts on your favourite platform</h3>
         <h4 class="h5">New episodes every week</h4>
 
         <div class="d-flex align-items-center gap-4 flex-wrap">

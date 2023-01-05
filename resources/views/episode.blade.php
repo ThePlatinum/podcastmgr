@@ -16,8 +16,7 @@
     <div class="py-5">
 
       <h5>Listen</h5>
-      <audio controls>
-        <source src="{{$episode->url}}" type="audio/mpeg">
+      <audio controls src="{{$episode->url}}">
         Your browser does not support the audio element.
       </audio>
 
